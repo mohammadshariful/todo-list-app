@@ -8,7 +8,10 @@ let count = 0;
 // functionalities
 AddButton.addEventListener("click", function (event) {
   event.preventDefault();
+
   const inputNum = parseInt(inputField.value);
+
+  // conditional checking
   if (inputField.value === "") {
     alert("Please Enter a string value");
   } else if (!Number.isNaN(inputNum)) {
@@ -23,9 +26,10 @@ AddButton.addEventListener("click", function (event) {
     tableRow.innerHTML = `
                <th>${count}</th>
               <td>${inputField.value}</td>
-              <td>
+              <td class = "d-flex justify-content-center flex-column flex-md-row">
                 <button class="btn btn-success">Done</button>
                 <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-info">Edit</button>
               </td>
       `;
 
@@ -46,6 +50,15 @@ AddButton.addEventListener("click", function (event) {
       buttons.addEventListener("click", function (e) {
         e.target.parentNode.parentNode.remove();
       });
+      // edit info btn
+      const editBtn = document.querySelectorAll(".btn-info");
+      for (const edit of editBtn) {
+        edit.addEventListener("click", function (e) {
+          console.log(e.target);
+        });
+      }
+
+      // added show btn
       showBtn.addEventListener("click", function (e) {
         tableRow.remove();
       });
