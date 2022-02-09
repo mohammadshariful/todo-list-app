@@ -8,8 +8,10 @@ let count = 0;
 // functionalities
 AddButton.addEventListener("click", function (event) {
   event.preventDefault();
-
+  const inputNum = parseInt(inputField.value);
   if (inputField.value === "") {
+    alert("Please Enter a string value");
+  } else if (!Number.isNaN(inputNum)) {
     alert("Please Enter a string value");
   } else {
     count++;
@@ -19,7 +21,7 @@ AddButton.addEventListener("click", function (event) {
     //   create elements
     const tableRow = document.createElement("tr");
     tableRow.innerHTML = `
-      <th>${count}</th>
+               <th>${count}</th>
               <td>${inputField.value}</td>
               <td>
                 <button class="btn btn-success">Done</button>
